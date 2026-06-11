@@ -1,0 +1,12 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import Badge from "./Badge.astro";
+import { techStack } from "../data/site";
+---
+
+<section class="py-10 md:py-14">
+  <SectionHeading label="Tech Stack" title="Technologies I work with regularly" />
+  <div class="flex flex-wrap gap-2">
+    {techStack.map((tech) => <Badge text={tech} />)}
+  </div>
+</section>

@@ -1,0 +1,39 @@
+---
+import Badge from "./Badge.astro";
+
+export interface Props {
+  company: string;
+  role: string;
+  dates: string;
+  description: string;
+  achievements: string[];
+  tags: string[];
+}
+
+const { company, role, dates, description, achievements, tags } = Astro.props;
+---
+
+<div class="relative pl-5 pb-6 border-l border-gray-200 dark:border-neutral-800 last:pb-0">
+  <div
+    class="absolute left-0 top-1.5 w-2 h-2 -translate-x-1/2 rounded-full bg-gray-400 dark:bg-neutral-500 ring-2 ring-white dark:ring-neutral-950"
+  />
+  <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
+    <div>
+      <h3 class="text-sm font-semibold text-gray-900 dark:text-neutral-100">{company}</h3>
+      <p class="text-sm text-gray-500 dark:text-neutral-400">{role}</p>
+    </div>
+    <p class="text-xs text-gray-400 dark:text-neutral-500 whitespace-nowrap">{dates}</p>
+  </div>
+  <p class="text-sm text-gray-600 dark:text-neutral-400 mb-2 leading-relaxed">{description}</p>
+  <ul class="space-y-1 mb-3">
+    {achievements.map((item) => (
+      <li class="text-sm text-gray-500 dark:text-neutral-400 leading-relaxed flex gap-2">
+        <span class="text-gray-300 dark:text-neutral-600 select-none mt-0.5 shrink-0">–</span>
+        <span>{item}</span>
+      </li>
+    ))}
+  </ul>
+  <div class="flex flex-wrap gap-1.5">
+    {tags.map((tag) => <Badge text={tag} />)}
+  </div>
+</div>

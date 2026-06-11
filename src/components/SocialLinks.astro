@@ -1,0 +1,14 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import SocialButton from "./SocialButton.astro";
+import { socialLinks } from "../data/site";
+---
+
+<section class="py-10 md:py-14">
+  <SectionHeading label="Social" title="Find me online" />
+  <div class="flex flex-wrap gap-2">
+    {socialLinks.map((link) => (
+      <SocialButton label={link.platform} url={link.url} />
+    ))}
+  </div>
+</section>

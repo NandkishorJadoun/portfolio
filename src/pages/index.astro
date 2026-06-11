@@ -1,11 +1,35 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+import Hero from "../components/Hero.astro";
+import TechStack from "../components/TechStack.astro";
+import WorkExperience from "../components/WorkExperience.astro";
+import Projects from "../components/Projects.astro";
+import BlogPosts from "../components/BlogPosts.astro";
+import SocialLinks from "../components/SocialLinks.astro";
+import Contact from "../components/Contact.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <ThemeToggle />
+  <div class="max-w-3xl mx-auto px-5">
+    <Hero />
+    <hr class="border-gray-100 dark:border-neutral-800" />
+    <TechStack />
+    <hr class="border-gray-100 dark:border-neutral-800" />
+    <WorkExperience />
+    <hr class="border-gray-100 dark:border-neutral-800" />
+    <Projects />
+    <hr class="border-gray-100 dark:border-neutral-800" />
+    <BlogPosts />
+    <hr class="border-gray-100 dark:border-neutral-800" />
+    <SocialLinks />
+    <hr class="border-gray-100 dark:border-neutral-800" />
+    <Contact />
+    <footer
+      class="py-8 text-center text-xs text-gray-400 dark:text-neutral-500"
+    >
+      &copy; {new Date().getFullYear()} Alex Chen. Built with Astro &amp; Tailwind.
+    </footer>
+  </div>
 </Layout>

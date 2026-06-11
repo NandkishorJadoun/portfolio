@@ -1,0 +1,18 @@
+---
+export interface Props {
+  label: string;
+  url: string;
+}
+
+const { label, url } = Astro.props;
+---
+
+<a
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={label}
+  class="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-sm font-medium text-gray-600 dark:text-neutral-400 bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-md transition-all duration-200 hover:bg-gray-50 dark:hover:bg-neutral-800 hover:border-gray-300 dark:hover:border-neutral-600 hover:text-gray-900 dark:hover:text-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-neutral-950"
+>
+  {label}
+</a>

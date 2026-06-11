@@ -1,0 +1,46 @@
+---
+import { siteInfo } from "../data/site";
+---
+
+<section class="pt-16 pb-6 md:pt-20 md:pb-8">
+  <div class="flex flex-col items-start gap-4">
+    <div
+      class="w-14 h-14 rounded-full bg-gray-100 dark:bg-neutral-800 border-2 border-gray-200 dark:border-neutral-700 flex items-center justify-center text-sm font-semibold text-gray-500 dark:text-neutral-400 shrink-0"
+    >
+      {(siteInfo.firstName[0] + siteInfo.name.split(" ").pop()![0])}
+    </div>
+    <div class="space-y-2">
+      <h1
+        class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-neutral-100 leading-tight"
+      >
+        Hey, I'm <span class="italic">{siteInfo.firstName}</span>!
+      </h1>
+      <p class="text-base md:text-lg text-gray-500 dark:text-neutral-400 font-medium">
+        {siteInfo.role}
+      </p>
+      <p class="text-sm text-gray-600 dark:text-neutral-400 max-w-xl leading-relaxed">
+        {siteInfo.bio}
+      </p>
+    </div>
+    <div class="flex flex-wrap gap-2">
+      <a
+        href={siteInfo.bookingUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center px-4 py-2 text-sm font-medium text-white dark:text-neutral-950 bg-gray-900 dark:bg-neutral-100 rounded-md transition-all duration-200 hover:bg-gray-800 dark:hover:bg-neutral-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-neutral-950"
+      >
+        Book a call
+      </a>
+      <a
+        href={`mailto:${siteInfo.email}`}
+        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 dark:text-neutral-300 bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-md transition-all duration-200 hover:bg-gray-50 dark:hover:bg-neutral-800 hover:border-gray-300 dark:hover:border-neutral-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-neutral-950"
+      >
+        Send an email
+      </a>
+    </div>
+    <div class="flex items-center gap-2 text-sm text-gray-400 dark:text-neutral-500">
+      <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-neutral-500" />
+      {siteInfo.availability}
+    </div>
+  </div>
+</section>

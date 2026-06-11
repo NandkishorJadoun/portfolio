@@ -1,0 +1,30 @@
+---
+import { siteInfo } from "../data/site";
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section class="py-10 md:py-14">
+  <SectionHeading label="Contact" title="Let's work together" />
+  <div class="flex flex-col gap-3">
+    <div class="flex items-center gap-3">
+      <span class="text-sm text-gray-400 dark:text-neutral-500">Email</span>
+      <a
+        href={`mailto:${siteInfo.email}`}
+        class="text-sm font-medium text-gray-700 dark:text-neutral-300 transition-colors duration-200 hover:text-gray-900 dark:hover:text-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-neutral-950 rounded"
+      >
+        {siteInfo.email}
+      </a>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-sm text-gray-400 dark:text-neutral-500">Booking</span>
+      <a
+        href={siteInfo.bookingUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm font-medium text-gray-700 dark:text-neutral-300 transition-colors duration-200 hover:text-gray-900 dark:hover:text-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-neutral-950 rounded"
+      >
+        {siteInfo.bookingUrl}
+      </a>
+    </div>
+  </div>
+</section>

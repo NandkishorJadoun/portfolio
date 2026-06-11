@@ -1,0 +1,21 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import ExperienceItem from "./ExperienceItem.astro";
+import { experience } from "../data/site";
+---
+
+<section class="py-10 md:py-14">
+  <SectionHeading label="Experience" title="Where I've been building" />
+  <div class="mt-1">
+    {experience.map((job) => (
+      <ExperienceItem
+        company={job.company}
+        role={job.role}
+        dates={job.dates}
+        description={job.description}
+        achievements={job.achievements}
+        tags={job.tags}
+      />
+    ))}
+  </div>
+</section>

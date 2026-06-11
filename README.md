@@ -1,46 +1,109 @@
-# Astro Starter Kit: Basics
+# Alex Chen — Portfolio
 
-```sh
-pnpm create astro@latest -- --template basics
+A minimal, single-page portfolio built with [Astro](https://astro.build) and [Tailwind CSS v4](https://tailwindcss.com). Features a monochrome aesthetic and dark/light mode.
+
+## Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | [Astro 6](https://astro.build) — static site generation, `.astro` components |
+| Styling | [Tailwind CSS v4](https://tailwindcss.com) — CSS-first config via `@theme` |
+| Font | [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono) — monospace throughout |
+| Build | Vite (via Astro) with `@tailwindcss/vite` plugin |
+
+## Project Structure
+
+```
+src/
+├── components/          # 13 Astro components
+│   ├── Badge.astro             # Inline tag/badge (e.g. tech names, statuses)
+│   ├── BlogPosts.astro         # Lists blog posts from data
+│   ├── Contact.astro           # Email and booking links
+│   ├── ExperienceItem.astro    # Single job entry with timeline dot
+│   ├── Hero.astro              # Avatar, name, role, bio, CTA buttons
+│   ├── ProjectCard.astro       # Single project card with icon + status
+│   ├── Projects.astro          # Grid of ProjectCards
+│   ├── SectionHeading.astro    # Reusable section label + title
+│   ├── SocialButton.astro      # Styled social link button
+│   ├── SocialLinks.astro       # Row of SocialButtons
+│   ├── TechStack.astro         # Badge list of technologies
+│   ├── ThemeToggle.astro       # Dark/light toggle (sun/moon icons)
+│   └── WorkExperience.astro    # Timeline of ExperienceItems
+├── data/
+│   └── site.ts          # All portfolio content (info, tech, jobs, projects, posts, links)
+├── layouts/
+│   └── Layout.astro     # Root HTML shell, fonts, dark-mode script, slot
+├── pages/
+│   └── index.astro      # Single page composing all sections
+└── styles/
+    └── global.css       # Tailwind v4 entry, theme tokens, base resets
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Architecture
 
-## 🚀 Project Structure
+### Data-driven content
 
-Inside of your Astro project, you'll see the following folders and files:
+All content lives in `src/data/site.ts` — tech stack, work experience, projects, blog posts, social links, and personal info. Components import this data and render it. To update the portfolio, edit only this file.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+### Single-page layout
+
+`src/pages/index.astro` imports the `Layout` shell and renders sections in order:
+
+1. **ThemeToggle** — fixed top-right corner
+2. **Hero** — avatar, name, role, bio, CTA buttons, availability
+3. **TechStack** — badge grid of technologies
+4. **WorkExperience** — timeline with company, role, achievements, tags
+5. **Projects** — 2-column card grid with status badges
+6. **BlogPosts** — simple list with source labels
+7. **SocialLinks** — row of styled platform buttons
+8. **Contact** — email and booking URL
+9. **Footer** — copyright and tech attribution
+
+Sections are separated by thin horizontal rules.
+
+### Dark mode
+
+Dark mode uses the `.dark` class on `<html>`, activated by:
+- An **inline script** in `Layout.astro` that reads `localStorage.getItem("theme")` before paint (prevents flash)
+- Falling back to `prefers-color-scheme: dark`
+- The `ThemeToggle` component toggles the class and persists to `localStorage`
+
+Tailwind v4 uses `@custom-variant dark (&:where(.dark, .dark *))` to scope dark styles. Every utility that differs between modes uses the `dark:` prefix.
+
+### Styling approach
+
+All styling uses Tailwind utility classes directly in templates. No CSS modules, no styled-components, no component `<style>` tags. The only CSS file is `global.css`, which serves as Tailwind v4 entry, token definition, and base resets.
+
+Custom theme tokens:
+
+| Token | Value | Usage |
+|---|---|---|
+| `--font-family-sans` | IBM Plex Mono | Global monospace |
+
+## Getting Started
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start dev server (default http://localhost:4321)
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Preview production build
+pnpm preview
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Requires Node.js >= 22.12.
 
-## 🧞 Commands
+## Customization
 
-All commands are run from the root of the project, from a terminal:
+### Content
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+Edit `src/data/site.ts` — all text, links, and lists come from this file.
 
-## 👀 Want to learn more?
+### Theme tokens
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Edit the `@theme` block in `global.css` to change the font family.
