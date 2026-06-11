@@ -45,7 +45,7 @@ const { name, description, stars, language, url } = Astro.props;
         </svg>
         {stars.toLocaleString()}
       </span>
-      <Badge text={language} />
+      <Badge name={language} />
     </div>
   </div>
   <p class="text-sm text-gray-600 dark:text-neutral-400 leading-relaxed">{description}</p>

@@ -1,13 +1,15 @@
 ---
 export interface Props {
-  text: string;
+  name: string;
+  icon?: string;
 }
 
-const { text } = Astro.props;
+const { name, icon } = Astro.props;
 ---
 
 <span
-  class="inline-flex items-center px-2 py-0.5 text-xs text-gray-500 dark:text-neutral-400 bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-full"
+  class="inline-flex items-center gap-1 px-2 py-0.5 text-xs text-gray-500 dark:text-neutral-400 bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-full"
 >
-  {text}
+  {icon && <img src={`https://cdn.simpleicons.org/${icon}`} alt="" class="w-3.5 h-3.5" />}
+  {name}
 </span>

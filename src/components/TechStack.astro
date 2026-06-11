@@ -2,11 +2,29 @@
 import SectionHeading from "./SectionHeading.astro";
 import Badge from "./Badge.astro";
 import { techStack } from "../data/site";
+
+const categoryLabels: Record<string, string> = {
+  languages: "Languages",
+  frameworks: "Frameworks & Libraries",
+  database: "Database",
+  tools: "Developer Tools",
+};
 ---
 
 <section class="py-10 md:py-14">
   <SectionHeading label="Tech Stack" title="Technologies I work with regularly" />
-  <div class="flex flex-wrap gap-2">
-    {techStack.map((tech) => <Badge text={tech} />)}
+  <div class="space-y-5">
+    {Object.entries(techStack).map(([key, items]) => (
+      <div>
+        <h3 class="text-xs font-medium tracking-wide text-gray-400 dark:text-neutral-500 uppercase mb-2">
+          {categoryLabels[key]}
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          {items.map((item) => (
+            <Badge name={item.name} icon={item.icon} />
+          ))}
+        </div>
+      </div>
+    ))}
   </div>
 </section>

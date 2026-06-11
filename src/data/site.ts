@@ -8,20 +8,28 @@ export const siteInfo = {
   availability: "Available for new projects",
 };
 
-export const techStack = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "Tailwind CSS",
-  "Node.js",
-  "PostgreSQL",
-  "Docker",
-  "GraphQL",
-  "Prisma",
-  "Astro",
-  "Redis",
-  "AWS",
-];
+export const techStack = {
+  languages: [
+    { name: "TypeScript", icon: "typescript" },
+  ],
+  frameworks: [
+    { name: "React", icon: "react" },
+    { name: "Next.js", icon: "nextdotjs" },
+    { name: "Tailwind CSS", icon: "tailwindcss" },
+    { name: "GraphQL", icon: "graphql" },
+    { name: "Prisma", icon: "prisma" },
+    { name: "Astro", icon: "astro" },
+  ],
+  database: [
+    { name: "PostgreSQL", icon: "postgresql" },
+    { name: "Redis", icon: "redis" },
+  ],
+  tools: [
+    { name: "Node.js", icon: "nodedotjs" },
+    { name: "Docker", icon: "docker" },
+    { name: "AWS", icon: "amazonwebservices" },
+  ],
+};
 
 export const openSourceRepos = [
   {
