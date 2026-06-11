@@ -44,8 +44,26 @@
     var button = document.getElementById("theme-toggle");
     if (!button) return;
     button.addEventListener("click", function () {
-      var isDark = document.documentElement.classList.toggle("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
+      var rect = button.getBoundingClientRect();
+      var x = rect.left + rect.width / 2;
+      var y = rect.top + rect.height / 2;
+      var radius = Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y)
+      );
+      var html = document.documentElement;
+      html.style.setProperty("--toggle-x", x + "px");
+      html.style.setProperty("--toggle-y", y + "px");
+      html.style.setProperty("--toggle-radius", radius + "px");
+      if (document.startViewTransition) {
+        document.startViewTransition(function () {
+          var isDark = html.classList.toggle("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+      } else {
+        var isDark = html.classList.toggle("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      }
     });
   })();
 </script>

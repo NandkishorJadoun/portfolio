@@ -27,7 +27,7 @@ src/
 │   ├── SocialButton.astro      # Styled social link button
 │   ├── SocialLinks.astro       # Row of SocialButtons
 │   ├── TechStack.astro         # Badge list of technologies
-│   ├── ThemeToggle.astro       # Dark/light toggle (sun/moon icons)
+│   ├── ThemeToggle.astro       # Dark/light toggle with View Transition circular reveal
 │   └── WorkExperience.astro    # Timeline of ExperienceItems
 ├── data/
 │   └── site.ts          # All portfolio content (info, tech, jobs, projects, posts, links)
@@ -36,7 +36,7 @@ src/
 ├── pages/
 │   └── index.astro      # Single page composing all sections
 └── styles/
-    └── global.css       # Tailwind v4 entry, theme tokens, base resets
+    └── global.css       # Tailwind v4 entry, theme tokens, base resets, view-transition keyframes
 ```
 
 ## Architecture
@@ -67,6 +67,9 @@ Dark mode uses the `.dark` class on `<html>`, activated by:
 - An **inline script** in `Layout.astro` that reads `localStorage.getItem("theme")` before paint (prevents flash)
 - Falling back to `prefers-color-scheme: dark`
 - The `ThemeToggle` component toggles the class and persists to `localStorage`
+
+The toggle uses `document.startViewTransition()` for a smooth circular reveal animation.
+The button's bounding rect determines the clip‑path origin (`--toggle-x`, `--toggle-y`), and `Math.hypot` computes the radius needed to cover the viewport. The animation runs at 300 ms with `ease-out` easing, and the default view‑transition group fade‑in is disabled to prevent competing opacity transitions.
 
 Tailwind v4 uses `@custom-variant dark (&:where(.dark, .dark *))` to scope dark styles. Every utility that differs between modes uses the `dark:` prefix.
 

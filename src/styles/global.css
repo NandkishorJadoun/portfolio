@@ -4,7 +4,7 @@
 
 @theme {
   --font-family-sans: "IBM Plex Mono", ui-monospace, monospace;
-}
+} 
 
 @layer base {
   * {
@@ -19,4 +19,27 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+}
+
+@keyframes circle-grow {
+  from {
+    clip-path: circle(0% at var(--toggle-x, 50%) var(--toggle-y, 50%));
+  }
+  to {
+    clip-path: circle(var(--toggle-radius, 100%) at var(--toggle-x, 50%) var(--toggle-y, 50%));
+  }
+}
+
+::view-transition-group(root) {
+  animation: none;
+}
+
+::view-transition-old(root) {
+  animation: none;
+  opacity: 1;
+}
+
+::view-transition-new(root) {
+  animation: circle-grow 300ms ease-out;
+  mix-blend-mode: normal;
 }
