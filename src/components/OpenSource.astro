@@ -1,0 +1,20 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import OpenSourceItem from "./OpenSourceItem.astro";
+import { openSourceRepos } from "../data/site";
+---
+
+<section class="py-10 md:py-14">
+  <SectionHeading label="Open Source" title="Things I've shipped to the world" />
+  <div class="mt-1">
+    {openSourceRepos.map((repo) => (
+      <OpenSourceItem
+        name={repo.name}
+        description={repo.description}
+        stars={repo.stars}
+        language={repo.language}
+        url={repo.url}
+      />
+    ))}
+  </div>
+</section>

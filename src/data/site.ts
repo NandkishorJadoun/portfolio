@@ -23,45 +23,38 @@ export const techStack = [
   "AWS",
 ];
 
-export const experience = [
+export const openSourceRepos = [
   {
-    company: "Studio Nebula",
-    role: "Senior Frontend Engineer",
-    dates: "Jan 2024 — Present",
+    name: "prism-ui",
     description:
-      "Leading the frontend team building a design systems platform used by hundreds of product teams.",
-    achievements: [
-      "Architected a component library serving 12 product teams across the organization",
-      "Reduced bundle size by 40% through code splitting and tree-shaking optimizations",
-      "Mentored 4 junior engineers through structured pair programming and code reviews",
-    ],
-    tags: ["React", "TypeScript", "Storybook", "CSS Modules"],
+      "A React component library focused on accessibility, theming, and developer experience. Used by teams at several startups.",
+    stars: 1280,
+    language: "TypeScript",
+    url: "https://github.com/alexchen/prism-ui",
   },
   {
-    company: "Polaris Labs",
-    role: "Full-Stack Developer",
-    dates: "Jun 2022 — Dec 2023",
+    name: "void",
     description:
-      "Built and maintained customer-facing SaaS products in the developer tools space.",
-    achievements: [
-      "Delivered a real-time collaboration feature using WebSockets and CRDTs",
-      "Designed and implemented a REST + GraphQL API serving 50k+ daily requests",
-      "Led migration from a monolith to a microservices architecture on AWS ECS",
-    ],
-    tags: ["Node.js", "React", "PostgreSQL", "Docker", "GraphQL"],
+      "Tiny, immutable state management library for TypeScript projects. Zero dependencies, 1 KB gzipped.",
+    stars: 640,
+    language: "TypeScript",
+    url: "https://github.com/alexchen/void",
   },
   {
-    company: "Rivet Software",
-    role: "Junior Developer",
-    dates: "Sep 2020 — May 2022",
+    name: "chisel",
     description:
-      "Started my career building internal tooling and customer-facing dashboards.",
-    achievements: [
-      "Built an internal analytics dashboard adopted by the entire customer success team",
-      "Automated CI/CD pipelines reducing deployment time from 30 minutes to 5 minutes",
-      "Contributed to open-source libraries used by the broader developer community",
-    ],
-    tags: ["JavaScript", "Python", "React", "PostgreSQL"],
+      "A CLI tool for scaffolding and managing microservices. Generates boilerplate, Dockerfiles, and CI configs from a single YAML file.",
+    stars: 310,
+    language: "Go",
+    url: "https://github.com/alexchen/chisel",
+  },
+  {
+    name: "postcss-theme-switcher",
+    description:
+      "PostCSS plugin for runtime theme switching without CSS custom property overhead. Generates theme-specific stylesheets on build.",
+    stars: 180,
+    language: "JavaScript",
+    url: "https://github.com/alexchen/postcss-theme-switcher",
   },
 ];
 
