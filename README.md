@@ -17,13 +17,13 @@ A minimal, single-page portfolio built with [Astro](https://astro.build) and [Ta
 src/
 ├── components/          # 13 Astro components
 │   ├── Badge.astro             # Inline tag/badge (e.g. tech names, languages)
-│   ├── BlogPosts.astro         # Lists blog posts from data
 │   ├── Contact.astro           # Email and booking links
 │   ├── Hero.astro              # Avatar, name, role, bio, CTA buttons
 │   ├── OpenSource.astro        # Open source repos section
 │   ├── OpenSourceItem.astro    # Single repo row with stars + language
 │   ├── ProjectCard.astro       # Single project card with 16:9 screenshot placeholder
 │   ├── Projects.astro          # Grid of ProjectCards
+│   ├── ProofOfWork.astro       # GitHub contribution graph with light/dark images
 │   ├── SectionHeading.astro    # Reusable section label + title
 │   ├── SocialButton.astro      # Styled social link button
 │   ├── SocialLinks.astro       # Row of SocialButtons
@@ -43,7 +43,7 @@ src/
 
 ### Data-driven content
 
-All content lives in `src/data/site.ts` — tech stack, open source repos, projects, blog posts, social links, and personal info. Components import this data and render it. To update the portfolio, edit only this file.
+All content lives in `src/data/site.ts` — tech stack, open source repos, projects, social links, and personal info. Components import this data and render it. To update the portfolio, edit only this file.
 
 ### Single-page layout
 
@@ -54,7 +54,7 @@ All content lives in `src/data/site.ts` — tech stack, open source repos, proje
 3. **TechStack** — badge grid of technologies
 4. **OpenSource** — vertical timeline of repos with stars and language badges
 5. **Projects** — 2-column card grid with 16:9 screenshot placeholders and status badges
-6. **BlogPosts** — simple list with source labels
+6. **ProofOfWork** — GitHub contribution graph with light/dark theme images
 7. **SocialLinks** — row of styled platform buttons
 8. **Contact** — email and booking URL
 9. **Footer** — copyright and tech attribution

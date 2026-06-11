@@ -89,14 +89,6 @@ export const projects = [
   },
 ];
 
-export const blogPosts = [
-  { title: "Building accessible React components from scratch", source: "Medium" },
-  { title: "Why I switched from Next.js to Astro for my portfolio", source: "Dev.to" },
-  { title: "A practical guide to TypeScript generics", source: "Personal Blog" },
-  { title: "Scaling PostgreSQL for SaaS applications", source: "Medium" },
-  { title: "The art of writing maintainable CSS", source: "Dev.to" },
-];
-
 export const socialLinks = [
   { platform: "X (Twitter)" as const, url: "https://x.com/alexchen" },
   { platform: "LinkedIn" as const, url: "https://linkedin.com/in/alexchen" },

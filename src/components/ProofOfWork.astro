@@ -1,0 +1,21 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section class="py-10 md:py-14">
+  <SectionHeading label="Proof of Work" title="GitHub contribution graph" />
+  <img
+    src="https://brettterpstra.com/contrib/generate?username=nandkishorjadoun&theme=light&caption_month=1&caption_day=1&width=768"
+    class="dark:hidden w-full"
+    alt="GitHub contribution graph"
+    width="827"
+    height="160"
+  />
+  <img
+    src="https://brettterpstra.com/contrib/generate?username=nandkishorjadoun&theme=dark&caption_month=1&caption_day=1&width=768"
+    class="hidden dark:block w-full"
+    alt="GitHub contribution graph"
+    width="827"
+    height="160"
+  />
+</section>

@@ -5,7 +5,7 @@ import Hero from "../components/Hero.astro";
 import TechStack from "../components/TechStack.astro";
 import OpenSource from "../components/OpenSource.astro";
 import Projects from "../components/Projects.astro";
-import BlogPosts from "../components/BlogPosts.astro";
+import ProofOfWork from "../components/ProofOfWork.astro";
 import SocialLinks from "../components/SocialLinks.astro";
 import Contact from "../components/Contact.astro";
 ---
@@ -13,19 +13,19 @@ import Contact from "../components/Contact.astro";
 <Layout>
   <ThemeToggle />
   <div class="max-w-3xl mx-auto px-5">
-    <Hero />
+    <div class="reveal-hero"><Hero /></div>
     <hr class="border-gray-100 dark:border-neutral-800" />
-    <TechStack />
+    <div class="reveal"><TechStack /></div>
     <hr class="border-gray-100 dark:border-neutral-800" />
-    <OpenSource />
+    <div class="reveal"><OpenSource /></div>
     <hr class="border-gray-100 dark:border-neutral-800" />
-    <Projects />
+    <div class="reveal"><Projects /></div>
     <hr class="border-gray-100 dark:border-neutral-800" />
-    <BlogPosts />
+    <div class="reveal"><ProofOfWork /></div>
     <hr class="border-gray-100 dark:border-neutral-800" />
-    <SocialLinks />
+    <div class="reveal"><SocialLinks /></div>
     <hr class="border-gray-100 dark:border-neutral-800" />
-    <Contact />
+    <div class="reveal"><Contact /></div>
     <footer
       class="py-8 text-center text-xs text-gray-400 dark:text-neutral-500"
     >
